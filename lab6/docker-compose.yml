@@ -1,0 +1,10 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: lab6-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./passwd:/mosquitto/config/passwd
+      - ./acl:/mosquitto/config/acl

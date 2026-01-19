@@ -1,0 +1,6 @@
+{
+    "key": "ctrl+f",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0006" }, 
+    "when": "terminalFocus && terminalHasBeenCreated"
+}

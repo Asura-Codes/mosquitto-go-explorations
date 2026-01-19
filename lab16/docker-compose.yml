@@ -1,0 +1,31 @@
+services:
+  haproxy:
+    image: haproxy:2.4
+    container_name: haproxy-lb-mesh
+    ports:
+      - "1883:1883"
+      - "8404:8404"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    depends_on:
+      - mosquitto1
+      - mosquitto2
+      - mosquitto3
+
+  mosquitto1:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto1-mesh
+    volumes:
+      - ./mosquitto1.conf:/mosquitto/config/mosquitto.conf
+
+  mosquitto2:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto2-mesh
+    volumes:
+      - ./mosquitto2.conf:/mosquitto/config/mosquitto.conf
+
+  mosquitto3:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto3-mesh
+    volumes:
+      - ./mosquitto3.conf:/mosquitto/config/mosquitto.conf

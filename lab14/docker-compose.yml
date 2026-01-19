@@ -1,0 +1,24 @@
+services:
+  mosquitto-primary:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto-primary
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  mosquitto-secondary:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto-secondary
+    ports:
+      - "1884:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  mosquitto-tertiary:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto-tertiary
+    ports:
+      - "1885:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf

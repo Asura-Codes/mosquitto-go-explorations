@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mosquitto_lab17
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+      - ./certs:/mosquitto/certs
+      # We mount the config directory so the plugin can write the JSON file
+      # We need to ensure the file exists or the dir is writable.
+      # Mapping the file directly might cause issues if it doesn't exist.
+      # Let's map a separate volume for the dynamic config if needed, or just keep it in /mosquitto/config
+      - ./dynamic-security.json:/mosquitto/config/dynamic-security.json

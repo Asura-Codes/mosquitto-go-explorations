@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  mosquitto-hub:
+    image: eclipse-mosquitto:2.0
+    container_name: lab9-hub
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto_hub.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - lab9_net
+
+  mosquitto-leaf:
+    image: eclipse-mosquitto:2.0
+    container_name: lab9-leaf
+    ports:
+      - "1884:1883"
+    volumes:
+      - ./mosquitto_leaf.conf:/mosquitto/config/mosquitto.conf
+    depends_on:
+      - mosquitto-hub
+    networks:
+      - lab9_net
+
+networks:
+  lab9_net:
+    driver: bridge

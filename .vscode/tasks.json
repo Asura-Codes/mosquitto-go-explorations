@@ -1,0 +1,265 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Lab 01: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab1/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 1"
+        },
+        {
+            "label": "Lab 01: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab1/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 1"
+        },
+        {
+            "label": "Lab 02: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab2/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 2"
+        },
+        {
+            "label": "Lab 02: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab2/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 2"
+        },
+        {
+            "label": "Lab 03: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab3/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 3"
+        },
+        {
+            "label": "Lab 03: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab3/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 3"
+        },
+        {
+            "label": "Lab 04: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab4/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 4"
+        },
+        {
+            "label": "Lab 04: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab4/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 4"
+        },
+        {
+            "label": "Lab 05: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab5/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 5"
+        },
+        {
+            "label": "Lab 05: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab5/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 5"
+        },
+        {
+            "label": "Lab 06: Generate Password File",
+            "type": "shell",
+            "command": "docker run --rm -v ${workspaceFolder}/lab6:/work eclipse-mosquitto:latest sh /work/init_auth.sh",
+            "problemMatcher": [],
+            "detail": "Generates the password file for Lab 6 using Docker"
+        },
+        {
+            "label": "Lab 06: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab6/docker-compose.yml up -d",
+            "dependsOn": ["Lab 6: Generate Password File"],
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 6"
+        },
+        {
+            "label": "Lab 06: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab6/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 6"
+        },
+        {
+            "label": "Lab 07: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab7/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 7"
+        },
+        {
+            "label": "Lab 07: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab7/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 7"
+        },
+        {
+            "label": "Lab 08: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab8/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 8"
+        },
+        {
+            "label": "Lab 08: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab8/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 8"
+        },
+        {
+            "label": "Lab 09: Start Mosquitto Brokers",
+            "type": "shell",
+            "command": "docker compose -f lab9/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto Hub and Leaf brokers for Lab 9"
+        },
+        {
+            "label": "Lab 09: Stop Mosquitto Brokers",
+            "type": "shell",
+            "command": "docker compose -f lab9/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto Hub and Leaf brokers for Lab 9"
+        },
+        {
+            "label": "Lab 10: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab10/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 10"
+        },
+        {
+            "label": "Lab 10: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab10/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 10"
+        },
+        {
+            "label": "Lab 11: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab11/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 11"
+        },
+        {
+            "label": "Lab 11: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab11/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 11"
+        },
+        {
+            "label": "Lab 12: Start Mosquitto Brokers",
+            "type": "shell",
+            "command": "docker compose -f lab12/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Hub and Edge brokers for Lab 12"
+        },
+        {
+            "label": "Lab 12: Stop Mosquitto Brokers",
+            "type": "shell",
+            "command": "docker compose -f lab12/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Hub and Edge brokers for Lab 12"
+        },
+        {
+            "label": "Lab 13: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab13/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 13"
+        },
+        {
+            "label": "Lab 13: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab13/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 13"
+        },
+        {
+            "label": "Lab 14: Start Mosquitto Brokers",
+            "type": "shell",
+            "command": "docker compose -f lab14/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto brokers for Lab 14"
+        },
+        {
+            "label": "Lab 14: Stop Mosquitto Brokers",
+            "type": "shell",
+            "command": "docker compose -f lab14/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto brokers for Lab 14"
+        },
+        {
+            "label": "Lab 15: Start Mosquitto & HAProxy",
+            "type": "shell",
+            "command": "docker compose -f lab15/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the HAProxy and Mosquitto brokers for Lab 15"
+        },
+        {
+            "label": "Lab 15: Stop Mosquitto & HAProxy",
+            "type": "shell",
+            "command": "docker compose -f lab15/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the HAProxy and Mosquitto brokers for Lab 15"
+        },
+        {
+            "label": "Lab 16: Start Mesh Cluster",
+            "type": "shell",
+            "command": "docker compose -f lab16/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the HAProxy and Mesh of Mosquitto brokers for Lab 16"
+        },
+        {
+            "label": "Lab 16: Stop Mesh Cluster",
+            "type": "shell",
+            "command": "docker compose -f lab16/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the HAProxy and Mesh of Mosquitto brokers for Lab 16"
+        },
+        {
+            "label": "Lab 17: Start Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab17/docker-compose.yml up -d",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker for Lab 17"
+        },
+        {
+            "label": "Lab 17: Stop Mosquitto Broker",
+            "type": "shell",
+            "command": "docker compose -f lab17/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker for Lab 17"
+        },
+        {
+            "label": "Lab 18: Start Mosquitto & Auth Service",
+            "type": "shell",
+            "command": "docker compose -f lab18/docker-compose.yml up -d --build",
+            "problemMatcher": [],
+            "detail": "Starts the Mosquitto broker and Go Auth Service for Lab 18"
+        },
+        {
+            "label": "Lab 18: Stop Mosquitto & Auth Service",
+            "type": "shell",
+            "command": "docker compose -f lab18/docker-compose.yml down",
+            "problemMatcher": [],
+            "detail": "Stops the Mosquitto broker and Go Auth Service for Lab 18"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+services:
+  mosquitto-hub:
+    image: eclipse-mosquitto:latest
+    container_name: lab12-hub
+    volumes:
+      - ./mosquitto_hub.conf:/mosquitto/config/mosquitto.conf
+    ports:
+      - "1883:1883"
+
+  mosquitto-edge1:
+    image: eclipse-mosquitto:latest
+    container_name: lab12-edge1
+    volumes:
+      - ./mosquitto_edge1.conf:/mosquitto/config/mosquitto.conf
+    ports:
+      - "1884:1884"
+    depends_on:
+      - mosquitto-hub
+
+  mosquitto-edge2:
+    image: eclipse-mosquitto:latest
+    container_name: lab12-edge2
+    volumes:
+      - ./mosquitto_edge2.conf:/mosquitto/config/mosquitto.conf
+    ports:
+      - "1885:1885"
+    depends_on:
+      - mosquitto-hub

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT WebSockets Lab</title>
+    <!-- Use CDN for MQTT.js -->
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #f4f4f9; }
+        #status { padding: 10px; border-radius: 4px; margin-bottom: 10px; font-weight: bold; }
+        .connected { background: #d4edda; color: #155724; }
+        .disconnected { background: #f8d7da; color: #721c24; }
+        #messages { background: #fff; border: 1px solid #ddd; padding: 15px; height: 300px; overflow-y: scroll; border-radius: 4px; }
+        .msg { border-bottom: 1px solid #eee; margin-bottom: 5px; padding-bottom: 5px; }
+        .topic { color: #0056b3; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>MQTT WebSocket Client</h1>
+    <div id="status" class="disconnected">Status: Disconnected</div>
+    
+    <div>
+        <strong>Listening on:</strong> <code>ws://localhost:9001</code><br>
+        <strong>Subscribed to:</strong> <code>lab11/#</code>
+    </div>
+
+    <h3>Received Messages:</h3>
+    <div id="messages"></div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const messagesDiv = document.getElementById('messages');
+
+        // Connect to the broker via WebSockets
+        // Port 9001 is where we configured the WS listener in mosquitto.conf
+        const client = mqtt.connect('ws://localhost:9001');
+
+        client.on('connect', () => {
+            statusDiv.textContent = 'Status: Connected';
+            statusDiv.className = 'connected';
+            console.log('Connected to MQTT via WebSockets');
+            
+            // Subscribe to lab11 topics
+            client.subscribe('lab11/#', (err) => {
+                if (!err) {
+                    console.log('Subscribed to lab11/#');
+                }
+            });
+        });
+
+        client.on('message', (topic, message) => {
+            // message is a Buffer
+            const payload = message.toString();
+            const time = new Date().toLocaleTimeString();
+            
+            const msgEl = document.createElement('div');
+            msgEl.className = 'msg';
+            msgEl.innerHTML = `[${time}] <span class="topic">${topic}</span>: ${payload}`;
+            
+            messagesDiv.prepend(msgEl);
+        });
+
+        client.on('error', (err) => {
+            console.error('Connection error:', err);
+            statusDiv.textContent = 'Status: Error';
+            statusDiv.className = 'disconnected';
+        });
+
+        client.on('close', () => {
+            statusDiv.textContent = 'Status: Disconnected';
+            statusDiv.className = 'disconnected';
+        });
+    </script>
+</body>
+</html>

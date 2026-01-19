@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: ./auth-service
+    container_name: auth_service_lab18
+    ports:
+      - "8080:8080"
+    networks:
+      - mqtt-net
+
+  mosquitto:
+    image: iegomez/mosquitto-go-auth:latest
+    container_name: mosquitto_lab18
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/etc/mosquitto/mosquitto.conf
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+    depends_on:
+      - auth-service
+    networks:
+      - mqtt-net
+
+networks:
+  mqtt-net:
+    driver: bridge

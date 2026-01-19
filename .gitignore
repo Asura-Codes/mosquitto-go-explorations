@@ -1,0 +1,24 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
+
+# Temp
+tmp/
+
+# Certificates
+# Ignore any top-level or nested `certs/` directories
+certs/
+# Ignore common certificate and key file extensions anywhere in the repo
+*.crt
+*.pem
+*.key
+*.pfx
+*.p12
+*.der
+*.cer
+*.csr

@@ -1,0 +1,10 @@
+# Lab 6 Access Control List
+
+# User 'admin' has full access to all topics
+user admin
+topic readwrite #
+
+# User 'sensor' has restricted access
+user sensor
+topic write sensors/temp
+topic read commands/sensor
